@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @session.date %>
+</p>
+
+<p>
+  <strong>Feature:</strong>
+  <%= @session.feature %>
+</p>
+
+<p>
+  <strong>Focusarea:</strong>
+  <%= @session.focusarea %>
+</p>
+
+<p>
+  <strong>Sprint:</strong>
+  <%= @session.sprint %>
+</p>
+
+<%= link_to 'Edit', edit_session_path(@session) %> |
+<%= link_to 'Back', sessions_path %>
