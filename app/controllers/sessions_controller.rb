@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate
 
   # GET /sessions
   # GET /sessions.json
@@ -71,4 +72,10 @@ class SessionsController < ApplicationController
     def session_params
       params.require(:session).permit(:date, :feature, :focusarea, :sprint)
     end
+
+    def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['ET_SESSION_USER'] && password == ENV['ET_SESSION_PASS']
+    end
+  end
 end
