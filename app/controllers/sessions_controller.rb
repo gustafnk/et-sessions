@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:create]
 
   # GET /sessions
   # GET /sessions.json
